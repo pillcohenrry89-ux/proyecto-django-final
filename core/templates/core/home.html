@@ -1,0 +1,106 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Inicio - Mi Biblioteca{% endblock %}
+
+{% block content %}
+<div class="welcome-section text-center">
+    <h1 class="display-4 mb-4">
+        <i class="fas fa-book-open text-primary"></i> Bienvenido a Mi Biblioteca
+    </h1>
+    
+    {% if user.is_authenticated %}
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h2 class="h4 mb-3">
+                            <i class="fas fa-smile-wink text-warning"></i> 
+                            ¡Hola, {{ user.username }}!
+                        </h2>
+                        
+                        {% if user.is_superuser %}
+                            <div class="alert alert-info">
+                                <i class="fas fa-crown text-warning"></i> 
+                                Tienes permisos de <strong>Administrador</strong>
+                            </div>
+                        {% elif user.is_staff %}
+                            <div class="alert alert-primary">
+                                <i class="fas fa-tools"></i> 
+                                Eres miembro del <strong>Staff</strong>
+                            </div>
+                        {% else %}
+                            <div class="alert alert-success">
+                                <i class="fas fa-user"></i> 
+                                Eres un <strong>Usuario Regular</strong>
+                            </div>
+                        {% endif %}
+                        
+                        <p class="lead">¿Qué te gustaría hacer hoy?</p>
+                        
+                        <div class="row mt-4">
+                            <div class="col-md-6 mb-3">
+                                <a href="{% url 'libros' %}" class="btn btn-custom w-100">
+                                    <i class="fas fa-book"></i> Ver Libros
+                                </a>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <a href="{% url 'list_libros' %}" class="btn btn-outline-custom w-100">
+                                    <i class="fas fa-list"></i> Lista de Libros
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body p-5">
+                        <i class="fas fa-user-lock fa-4x text-muted mb-3"></i>
+                        <h2 class="h4 mb-3">¡Descubre nuestro catálogo!</h2>
+                        <p class="text-muted mb-4">
+                            Inicia sesión para acceder a nuestra colección de libros y mucho más.
+                        </p>
+                        <a href="{% url 'login' %}" class="btn btn-custom btn-lg">
+                            <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+</div>
+
+<!-- Sección de características -->
+<div class="row mt-5">
+    <div class="col-md-4 mb-4">
+        <div class="card text-center h-100">
+            <div class="card-body">
+                <i class="fas fa-book fa-3x text-primary mb-3"></i>
+                <h3 class="h5">Amplio Catálogo</h3>
+                <p class="text-muted">Descubre cientos de libros de diferentes géneros y autores.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card text-center h-100">
+            <div class="card-body">
+                <i class="fas fa-star fa-3x text-warning mb-3"></i>
+                <h3 class="h5">Recomendaciones</h3>
+                <p class="text-muted">Recibe sugerencias personalizadas basadas en tus gustos.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card text-center h-100">
+            <div class="card-body">
+                <i class="fas fa-users fa-3x text-success mb-3"></i>
+                <h3 class="h5">Comunidad</h3>
+                <p class="text-muted">Comparte reseñas y descubre qué leen otros usuarios.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

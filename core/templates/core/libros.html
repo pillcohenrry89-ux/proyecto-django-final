@@ -1,0 +1,169 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Libros - Mi Biblioteca{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>
+                <i class="fas fa-book text-primary"></i> Libros Disponibles
+            </h1>
+            <div>
+                <span class="badge-role">
+                    <i class="fas fa-user"></i> {{ user.username }}
+                </span>
+            </div>
+        </div>
+        
+        <div class="row">
+            <!-- Libro 1 -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <h5 class="card-title mb-0">El Quijote</h5>
+                            <span class="badge bg-warning text-dark">1605</span>
+                        </div>
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            <i class="fas fa-user"></i> Miguel de Cervantes
+                        </h6>
+                        <p class="card-text mt-3">
+                            La historia del ingenioso hidalgo Don Quijote de la Mancha, una de las obras más importantes de la literatura universal.
+                        </p>
+                        <div class="mt-3">
+                            <span class="badge bg-secondary me-1">Novela</span>
+                            <span class="badge bg-secondary">Clásico</span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 pb-3">
+                        <button class="btn btn-custom w-100" data-bs-toggle="modal" data-bs-target="#modalElQuijote">
+                            <i class="fas fa-info-circle"></i> Ver Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Libro 2 -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <h5 class="card-title mb-0">Cien años de soledad</h5>
+                            <span class="badge bg-warning text-dark">1967</span>
+                        </div>
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            <i class="fas fa-user"></i> Gabriel García Márquez
+                        </h6>
+                        <p class="card-text mt-3">
+                            La historia de la familia Buendía en Macondo, una obra maestra del realismo mágico.
+                        </p>
+                        <div class="mt-3">
+                            <span class="badge bg-secondary me-1">Realismo mágico</span>
+                            <span class="badge bg-secondary">Novela</span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 pb-3">
+                        <button class="btn btn-custom w-100" data-bs-toggle="modal" data-bs-target="#modalCienAnos">
+                            <i class="fas fa-info-circle"></i> Ver Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Libro 3 -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <h5 class="card-title mb-0">1984</h5>
+                            <span class="badge bg-warning text-dark">1949</span>
+                        </div>
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            <i class="fas fa-user"></i> George Orwell
+                        </h6>
+                        <p class="card-text mt-3">
+                            Una distopía sobre un estado totalitario y la vigilancia masiva, más relevante que nunca.
+                        </p>
+                        <div class="mt-3">
+                            <span class="badge bg-secondary me-1">Ciencia ficción</span>
+                            <span class="badge bg-secondary">Distopía</span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 pb-3">
+                        <button class="btn btn-custom w-100" data-bs-toggle="modal" data-bs-target="#modal1984">
+                            <i class="fas fa-info-circle"></i> Ver Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para El Quijote -->
+<div class="modal fade" id="modalElQuijote" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">El Quijote</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Autor:</strong> Miguel de Cervantes</p>
+                <p><strong>Año:</strong> 1605</p>
+                <p><strong>Género:</strong> Novela, Clásico</p>
+                <p><strong>Sinopsis:</strong> La obra narra las aventuras de Alonso Quijano, un hidalgo que pierde la razón por leer demasiados libros de caballerías y decide convertirse en caballero andante bajo el nombre de Don Quijote de la Mancha.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-custom">Tomar Prestado</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para Cien años de soledad -->
+<div class="modal fade" id="modalCienAnos" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Cien años de soledad</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Autor:</strong> Gabriel García Márquez</p>
+                <p><strong>Año:</strong> 1967</p>
+                <p><strong>Género:</strong> Realismo mágico, Novela</p>
+                <p><strong>Sinopsis:</strong> La novela narra la historia de la familia Buendía a lo largo de siete generaciones en el pueblo ficticio de Macondo.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-custom">Tomar Prestado</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para 1984 -->
+<div class="modal fade" id="modal1984" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">1984</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Autor:</strong> George Orwell</p>
+                <p><strong>Año:</strong> 1949</p>
+                <p><strong>Género:</strong> Ciencia ficción, Distopía</p>
+                <p><strong>Sinopsis:</strong> La novela presenta una sociedad totalitaria donde el Partido, liderado por el Gran Hermano, controla todos los aspectos de la vida.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-custom">Tomar Prestado</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
